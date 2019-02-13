@@ -1,6 +1,6 @@
-# Bootstrap 4.x Contact Form
+# Bootstrap 4.3 Contact Form
 
-Basic contact form for Bootstrap 4.x with a simple math captcha.
+Basic contact form for Bootstrap 4.3 with a simple math captcha.
 
 ## Getting Started
 
@@ -57,7 +57,9 @@ and the headlines.
 
 ## Built With
 
-* [Bootstrap 4][2] - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+* [jQuery][6] - Fast, small, and feature-rich JavaScript library.
+* [Bootstrap 4][3] - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+* [Font Awesome 5][5] - The web's most popular icon set and toolkit.
 
 ## Contributing
 
@@ -75,11 +77,18 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
+## History
+
+2019-02-13 - Update for Bootstrap v4.3x   
+2018-04-11 - Initial release for Bootstrap v4.x (v4.0 - v4.2x)
+
 
 [1]:http://php.net/manual/fa/timezones.php
 [2]:http://php.net/manual/en/function.mail.php
 [3]:https://getbootstrap.com
 [4]:https://github.com/DeltaOS2/bootstrap4-contact-form/Contributing.md
+[5]:https://fontawesome.com
+[6]:http://jquery.com
 
 [image-1]:screenshots/empty.png?raw=true
 [image-2]:screenshots/filled.png?raw=true
