@@ -1,6 +1,7 @@
 /*
  * Name: contact.css
  * Author: Gert Massheimer
+ * Update: 2019-02-12 for Bootstrap v4.3x
 -------------------------------------------------*/
 
 .shadow-br {
@@ -41,73 +42,81 @@
 .contact-form #human-label {
   line-height: 1.2rem;
   font-size: 1rem;
-  margin: 0.3rem 0 0 0;
+  margin: 0;
   padding: 0 0 0 15px;
 }
+.contact-form #name-feedback,
+.contact-form #email-feedback,
+.contact-form #message-feedback,
+.contact-form #human-feedback {
+  font-size: 80%;
+}
+.was-validated .form-control:valid,   .form-control.is-valid,
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  background-position: center left calc(0.375em + 0.1875rem);
+}
+.was-validated textarea.form-control:valid,   textarea.form-control.is-valid,
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid{
+  background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem);
+}
 
-/* ---- Taken from bs4 alpha 6
+
+/* THE HUMAN FACTOR :) (Captcha)
 -------------------------------------------------*/
-.contact-form .form-control-success,
-.contact-form .form-control-warning,
-.contact-form .form-control-danger {
-  padding-right: 2.25rem !important;
-  background: no-repeat center left !important;
-  -webkit-background-size: 1.125rem 1.125rem !important;
-  background-size: 1.125rem 1.125rem !important;
+.invalid-human-feedback {
+  width: 100%;
+  font-size: 80%;
+  color: #dc3545;
 }
-.contact-form .has-success .form-control-feedback,
-.contact-form .has-success .form-control-label,
-.contact-form .has-success .col-form-label,
-.contact-form .has-success .form-check-label,
-.contact-form .has-success .custom-control {
-  color: #5CB85C;
+.valid-human-feedback {
+  width: 100%;
+  font-size: 80%;
+  color: #28a745;
 }
-.contact-form .has-success .form-control {
-  border-color: #5CB85C;
+.human-form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.contact-form .has-success .input-group-addon {
-  color: #5CB85C;
-  border-color: #5CB85C;
-  background-color: #EAF6EA;
+.human-form-control.contact.shadow-br:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #007bff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.contact-form .has-success .form-control-success {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%235cb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E") !important;
+.human-form-control.contact.shadow-br.is-valid {
+  border-color: #28a745;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center left calc(0.375em + 0.1875rem);
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.contact-form .has-warning .form-control-feedback,
-.contact-form .has-warning .form-control-label,
-.contact-form .has-warning .col-form-label,
-.contact-form .has-warning .form-check-label,
-.contact-form .has-warning .custom-control {
-  color: #F0AD4E;
+.human-form-control.contact.shadow-br.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center left calc(0.375em + 0.1875rem);
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.contact-form .has-warning .form-control {
-  border-color: #F0AD4E;
+.human-form-control.contact.shadow-br.is-valid:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
-.contact-form .has-warning .input-group-addon {
-  color: #F0AD4E;
-  border-color: #F0AD4E;
-  background-color: white;
+.human-form-control.contact.shadow-br.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-.contact-form .has-warning .form-control-warning {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23f0ad4e' d='M4.4 5.324h-.8v-2.46h.8zm0 1.42h-.8V5.89h.8zM3.76.63L.04 7.075c-.115.2.016.425.26.426h7.397c.242 0 .372-.226.258-.426C6.726 4.924 5.47 2.79 4.253.63c-.113-.174-.39-.174-.494 0z'/%3E%3C/svg%3E") !important;
-}
-.contact-form .has-danger .form-control-feedback,
-.contact-form .has-danger .form-control-label,
-.contact-form .has-danger .col-form-label,
-.contact-form .has-danger .form-check-label,
-.contact-form .has-danger .custom-control {
-  color: #D9534F;
-}
-.contact-form .has-danger .form-control {
-  border-color: #D9534F;
-}
-.contact-form .has-danger .input-group-addon {
-  color: #D9534F;
-  border-color: #D9534F;
-  background-color: #FDF7F7;
-}
-.contact-form .has-danger .form-control-danger {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E") !important;
-}
-/*-----------------------------------------------*/
 
