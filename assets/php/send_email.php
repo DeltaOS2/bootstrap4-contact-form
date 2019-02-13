@@ -68,7 +68,7 @@ if (isset($_REQUEST['email'])) { // ensuring a receiver address is given!
 
   // ---- sending the email
   if (mail($to, '=?UTF-8?B?'.base64_encode($subject).'?=', $message, implode(chr(13), $headers)))
-    echo '1';    // ---- Tell the calling JavaScript, the email was sent.
-  else echo '0'; // ---- Or something went wrong.
+    echo '1';     // ---- Tell the calling JavaScript, the email was sent.
+  else echo '0';  // ---- Or something went wrong.
 }
 ?>
