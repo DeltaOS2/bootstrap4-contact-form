@@ -1,7 +1,5 @@
-// ---- contact.js
-// ---------------------------------------------------------
-
 // ---- Contact form interpretation
+// ---- Update: 2019-02-12 for Bootstrap v4.3x
 // ---------------------------------------------------------
 $(function() {
 
@@ -38,8 +36,8 @@ $(function() {
     $('#email').attr('placeholder', 'Your e-mail address');
     $('#message').attr('placeholder', 'Enter Your Message');
     $('#human').attr('placeholder', 'Answer?');
-    $('#submit').html('Send it&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
-    $('#reset').html('Reset&nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
+    $('#submit').html('Send Message&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
+    $('#reset').html('Delete Message&nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
   }
 
   if (language === "de") {
@@ -64,8 +62,8 @@ $(function() {
     $('#email').attr('placeholder', 'Ihre eMail-Adresse');
     $('#message').attr('placeholder', 'Ihre Nachricht');
     $('#human').attr('placeholder', 'Antwort?');
-    $('#submit').html('Senden&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
-    $('#reset').html('Zurücksetzen &nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
+    $('#submit').html('Sende Nachricht&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
+    $('#reset').html('Lösche Nachricht &nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
   }
 
   function makeNumber(numb) {
@@ -126,26 +124,36 @@ $(function() {
     let email   = $('input[id=email]').val();
     let message = $('textarea[id=message]').val();
     let human   = $('input[id=human]').val();
+
+    /*
+        console.log('name='+name+"\n");
+        console.log('email='+email+"\n");
+        console.log('message='+message+"\n");
+        console.log('human='+human+"\n");
+    */
+
     let goodToGo = false;
     let messageError = msgServer;
     const pattern = new RegExp(/^(('[\w-\s]+')|([\w-]+(?:\.[\w-]+)*)|('[\w-\s]+')([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})?$)/i);
 
+    $('form[id=contactForm]').addClass('was-validated');
+
     // ---- Checking name input
     if (name && name.length > 0 && name.trim() !== '') {
-      $('#name-row').removeClass('has-danger')
-        .addClass('has-success');
-      $('#name').removeClass('form-control-danger')
-        .addClass('form-control-success');
-      $('#name-feedback').html('&nbsp;');
+      $('#name').removeClass('is-invalid')
+        .addClass('is-valid');
+      $('#name-feedback').html('&nbsp;')
+        .removeClass('invalid-feedback')
+        .addClass('valid-feedback');
       goodToGoName = true;
     }
     else {
       messageError = msgEmpty;
-      $('#name-row').removeClass('has-success')
-        .addClass('has-danger');
-      $('#name').removeClass('form-control-success')
-        .addClass('form-control-danger');
-      $('#name-feedback').html(fieldName);
+      $('#name').removeClass('is-valid')
+        .addClass('is-invalid');
+      $('#name-feedback').html(fieldName)
+        .removeClass('valid-feedback')
+        .addClass('invalid-feedback');
       goodToGoName = false;
     }
 
@@ -153,54 +161,45 @@ $(function() {
     if (email && email.length > 0 && email.trim() !== '') { // ---- email field not empty
       // ---- Testing email format
       if (pattern.test(email)) { // ---- email format OK
-        $('#email-row').removeClass('has-warning')
-          .removeClass('has-danger')
-          .addClass('has-success');
-        $('#email').addClass('form-control-success')
-          .removeClass('form-control-warning');
+        $('#email').addClass('is-valid')
+          .removeClass('is-invalid');
         $('#email-feedback').html('&nbsp;');
         goodToGoEmail = true;
       }
       else { // ---- email format not OK
         messageError = msgEmail;
-        $('#email-row').removeClass('has-success')
-          .removeClass('has-danger')
-          .addClass('has-warning');
-        $('#email').removeClass('form-control-success')
-          .removeClass('form-control-danger')
-          .addClass('form-control-warning');
-        $('#email-feedback').html(fieldEmailFormat);
+        $('#email').removeClass('is-valid')
+          .addClass('is-invalid');
+        $('#email-feedback').html(fieldEmailFormat)
+          .removeClass('valid-feedback')
+          .addClass('invalid-feedback');
         goodToGoEmail = false;
       }
     }
     else { // ---- email field empty
       messageError = msgEmpty;
-      $('#email-row').removeClass('has-success')
-        .removeClass('has-warning')
-        .addClass('has-danger');
-      $('#email').removeClass('form-control-success')
-        .removeClass('form-control-warning')
-        .addClass('form-control-danger');
-      $('#email-feedback').html(fieldEmail);
+      $('#email').removeClass('is-valid')
+        .addClass('is-invalid');
+      $('#email-feedback').html(fieldEmail)
+        .removeClass('valid-feedback')
+        .addClass('invalid-feedback');
       goodToGoEmail = false;
     }
 
     // ---- Checking message input
     if (message && message.length > 0 && message.trim() !== '') { // ---- message field not empty
-      $('#message-row').removeClass('has-danger')
-        .addClass('has-success');
-      $('#message').removeClass('form-control-danger')
-        .addClass('form-control-success');
+      $('#message').removeClass('is-invalid')
+        .addClass('is-valid');
       $('#message-feedback').html('&nbsp;');
       goodToGoMsg = true;
     }
     else { // ---- message field empty
       messageError = msgEmpty;
-      $('#message-row').removeClass('has-success')
-        .addClass('has-danger');
-      $('#message').removeClass('form-control-success')
-        .addClass('form-control-danger');
-      $('#message-feedback').html(fieldMessage);
+      $('#message').removeClass('is-valid')
+        .addClass('is-invalid');
+      $('#message-feedback').html(fieldMessage)
+        .removeClass('valid-feedback')
+        .addClass('invalid-feedback');
       goodToGoMsg = false;
     }
 
@@ -208,36 +207,30 @@ $(function() {
     human = Number(human);
 
     // ---- Checking the human factor
-    if (human /* && human.length > 0 && $.trim(human) != '' */) { // ---- equation field not empty
-      if (human === result) { // ---- result is correct
-        $('#human-row').removeClass('has-warning')
-          .removeClass('has-danger')
-          .addClass('has-success');
-        $('#human').removeClass('form-control-warning')
-          .removeClass('form-control-danger')
-          .addClass('form-control-success');
+    if (human) { // ---- equation field not empty
+      if (human !== result) { // ---- result is incorrect
+        messageError = msgEquation1 + human + msgEquation2;
+        $('#human').removeClass('is-valid')
+          .addClass('is-invalid');
+        $('#human-feedback').html(fieldHumanResult)
+          .removeClass('valid-human-feedback')
+          .addClass('invalid-human-feedback');
+        goodToGoHuman = false;
+      }
+      else { // ---- result is correct
+        $('#human').removeClass('is-invalid')
+          .addClass('is-valid');
         $('#human-feedback').html('&nbsp;');
         goodToGoHuman = true;
-      }
-      else { // ---- result is incorrect
-        messageError = msgEquation1 + human + msgEquation2;
-        $('#human-row').removeClass('has-danger')
-          .addClass('has-warning');
-        $('#human').removeClass('form-control-danger')
-          .addClass('form-control-warning');
-        $('#human-feedback').html(fieldHumanResult);
-        goodToGoHuman = false;
       }
     }
     else { // ---- equation field empty
       messageError = msgEmpty;
-      $('#human-row').removeClass('has-warning')
-        .removeClass('has-success')
-        .addClass('has-danger');
-      $('#human').removeClass('form-control-warning')
-        .removeClass('form-control-success')
-        .addClass('form-control-danger');
-      $('#human-feedback').html(fieldHuman);
+      $('#human').removeClass('is-valid')
+        .addClass('is-invalid');
+      $('#human-feedback').html(fieldHuman)
+        .removeClass('valid-human-feedback')
+        .addClass('invalid-human-feedback');
       goodToGoHuman = false;
     }
 
@@ -251,32 +244,33 @@ $(function() {
     }
 
     if (goodToGo) {
+      // noinspection JSIgnoredPromiseFromCall
       $.ajax({
         data: $('#contactForm').serialize(),
         beforeSend: function() { // ---- entertain with loading gif while contacting the server
-          $('#success').removeClass('alert-warning')
-            .removeClass('alert-danger')
-            .removeClass('alert-success')
+          $('#success').addClass('alert-secondary border-secondary')
+            .removeClass('alert-danger border-danger')
+            .removeClass('alert-success border-success')
             .html(msgGraphic);
         },
         success:function(response) { // ---- server request positiv ...
           if (response === '1') { // ---- email was sent
-            $('#success').removeClass('alert-warning')
-              .removeClass('alert-danger')
-              .addClass('alert-success')
+            $('#success').removeClass('alert-secondary border-secondary')
+              .removeClass('alert-danger border-danger')
+              .addClass('alert-success border-success')
               .html(msgSuccess);
           }
           else { // ---- ... but email not sent
-            $('#success').removeClass('alert-success')
-              .removeClass('alert-warning')
-              .addClass('alert-danger')
+            $('#success').removeClass('alert-success border-success')
+              .removeClass('alert-secondary border-secondary')
+              .addClass('alert-danger border-danger')
               .html(msgNotSent);
           }
         },
         error:function() { // ---- PHP file not found
-          $('#success').removeClass('alert-success')
-            .removeClass('alert-warning')
-            .addClass('alert-danger')
+          $('#success').removeClass('alert-success border-success')
+            .removeClass('alert-secondary border-secondary')
+            .addClass('alert-danger border-danger')
             .html(msgNoPhpFile);
         },
         complete: function() {
@@ -288,9 +282,9 @@ $(function() {
       return true;
     }
     else { // ---- there is a problem contacting the server
-      $('#success').removeClass('alert-success')
-        .removeClass('alert-warning')
-        .addClass('alert-danger')
+      $('#success').removeClass('alert-success border-success')
+        .removeClass('alert-secondary border-secondary')
+        .addClass('alert-danger border-danger')
         .html(messageError);
       return false;
     }
