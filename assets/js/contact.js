@@ -38,8 +38,6 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 
-=======
->>>>>>> origin/master
 // ---- Contact form interpretation
 // ---- Update: 2019-02-12 for Bootstrap v4.3x
 // ---------------------------------------------------------
@@ -49,7 +47,6 @@ $(function() {
   let language = "en";
 //  let language = "de";
   // ----------------------
-<<<<<<< HEAD
 
   const msgGraphic  = '<div class="text-center fa-3x"><i class="fas fa-spinner fa-spin"></i></div>';
 
@@ -57,15 +54,6 @@ $(function() {
     fieldEmailFormat, fieldEmail, fieldMessage, fieldHumanResult, fieldHuman, humanQuestion, humanEquation, result,
     goodToGoName, goodToGoEmail, goodToGoMsg, goodToGoHuman;
 
-=======
-
-  const msgGraphic  = '<div class="text-center fa-3x"><i class="fas fa-spinner fa-spin"></i></div>';
-
-  let msgEmail, msgEmpty, msgNotSent, msgNoPhpFile, msgServer, msgEquation1, msgEquation2, msgSuccess, fieldName,
-    fieldEmailFormat, fieldEmail, fieldMessage, fieldHumanResult, fieldHuman, humanQuestion, humanEquation, result,
-    goodToGoName, goodToGoEmail, goodToGoMsg, goodToGoHuman;
-
->>>>>>> origin/master
   if (language !== "de") {
     msgEmail          = 'Please check your email address';
     msgEmpty          = 'You must fill all the form fields to proceed!';
@@ -88,13 +76,8 @@ $(function() {
     $('#email').attr('placeholder', 'Your e-mail address');
     $('#message').attr('placeholder', 'Enter Your Message');
     $('#human').attr('placeholder', 'Answer?');
-<<<<<<< HEAD
     $('#submit').html('Send Message<i class="fab fa-telegram-plane pl-2"></i>');
     $('#reset').html('Delete Message<i class="far fa-times-circle pl-2"></i>').on('click', function(){location.reload();});
-=======
-    $('#submit').html('Send Message&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
-    $('#reset').html('Delete Message&nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
->>>>>>> origin/master
   }
 
   if (language === "de") {
@@ -119,18 +102,12 @@ $(function() {
     $('#email').attr('placeholder', 'Ihre eMail-Adresse');
     $('#message').attr('placeholder', 'Ihre Nachricht');
     $('#human').attr('placeholder', 'Antwort?');
-<<<<<<< HEAD
     $('#submit').html('Sende Nachricht<i class="fab fa-telegram-plane pl-2"></i>');
     $('#reset').html('Lösche Nachricht<i class="far fa-times-circle pl-2"></i>').on('click', function(){location.reload();});
-=======
-    $('#submit').html('Sende Nachricht&nbsp;&nbsp;&nbsp;<i class="fab fa-telegram-plane"></i>');
-    $('#reset').html('Lösche Nachricht &nbsp;&nbsp;&nbsp;<i class="far fa-times-circle"></i>').on('click', function(){location.reload(false);});
->>>>>>> origin/master
   }
 
   function makeNumber(numb) {
     if (language === 'de') {
-<<<<<<< HEAD
       switch (numb) {
         case  1: return 'eins';
         case  2: return 'zwei';
@@ -146,23 +123,6 @@ $(function() {
     }
     if (language !== 'de') {
       switch (numb) {
-=======
-      switch (numb) {
-        case  1: return 'eins';
-        case  2: return 'zwei';
-        case  3: return 'drei';
-        case  4: return 'vier';
-        case  5: return 'fünf';
-        case  6: return 'sechs';
-        case  7: return 'sieben';
-        case  8: return 'acht';
-        case  9: return 'neun';
-        case 10: return 'zehn';
-      }
-    }
-    if (language !== 'de') {
-      switch (numb) {
->>>>>>> origin/master
         case  1: return 'one';
         case  2: return 'two';
         case  3: return 'three';
