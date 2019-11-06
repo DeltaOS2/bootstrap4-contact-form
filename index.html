@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="assets/css/contact.css" type="text/css">
 
     <!-- Font Awesome (free) SVG-Version -->
-
     <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
-    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 
   </head>
   <body>
@@ -46,7 +44,6 @@
             <form class="contact-form" id="contactForm" name="contactForm" method="post" novalidate>
               <div id="name-row" class="row">
                 <div class="col-12 col-sm-8">
-                <div class="col-sm-8">
                   <label for="name" class="d-none">Name:</label>
                   <input type="text" id="name" name="name" class="form-control contact shadow-br" required>
                   <div id="name-feedback" class="pb-2">&nbsp;</div>
@@ -54,7 +51,6 @@
               </div>
               <div id="email-row" class="row">
                 <div class="col-12 col-sm-8">
-                <div class="col-sm-8">
                   <label for="email" class="d-none">E-Mail:</label>
                   <input type="email" id="email" name="email" class="form-control contact shadow-br" required>
                   <div id="email-feedback" class="pb-2">&nbsp;</div>
@@ -62,7 +58,6 @@
               </div>
               <div id="message-row" class="row">
                 <div class="col-12">
-                <div class="col-sm-12">
                   <label for="message" class="d-none">Your Message:</label>
                   <textarea rows="7" id="message" name="message" class="form-control contact shadow-br" required></textarea>
                   <div id="message-feedback" class="pb-2">&nbsp;</div>
@@ -79,14 +74,6 @@
                   <input type="number" min="0" max="99" class="human-form-control contact shadow-br" id="human" name="human" required>
                 </div>
                 <div class="col-12 col-md-3">
-                <label id="human-label" for="human" class="col-form-label form-text text-dark">
-                  <span id="human-question">&nbsp;</span><br />
-                  <span id="human-equation">&nbsp;</span> <span id="part1"></span> plus <span id="part2"></span>?
-                </label>
-                <div class="col-sm-3">
-                  <input type="number" min="0" max="99" class="human-form-control contact shadow-br" id="human" name="human" required>
-                </div>
-                <div class="col-sm-3">
                   <div id="human-feedback">&nbsp;</div>
                 </div>
               </div>
@@ -97,10 +84,6 @@
                   <button class="btn btn-success form-control shadow-br" type="submit" id="submit" name="submit"></button>
                 </div>
                 <div class="col-12 col-md-3 pt-4 pt-sm-0">
-                <div class="col-sm-3">
-                  <button class="btn btn-success form-control shadow-br" type="submit" id="submit" name="submit"></button>
-                </div>
-                <div class="col-sm-3">
                   <button class="btn btn-danger form-control shadow-br" type="reset" id="reset" name="reset"></button>
                 </div>
               </div>
