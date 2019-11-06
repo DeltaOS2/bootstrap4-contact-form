@@ -1,11 +1,10 @@
 # Bootstrap 4.3 Contact Form
 
-<<<<<<< HEAD
+
 Basic contact form for Bootstrap 4.3 with a simple math captcha.  
 Now ready for dark mode!
-=======
+
 Basic contact form for Bootstrap 4.3 with a simple math captcha.
->>>>>>> origin/master
 
 ## Getting Started
 
@@ -85,10 +84,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## History
 
-<<<<<<< HEAD
+
 2019-11-06 - Update for dark/light-mode switching  
-=======
->>>>>>> origin/master
 2019-02-13 - Update for Bootstrap v4.3x   
 2018-04-11 - Initial release for Bootstrap v4.x (v4.0 - v4.2x)
 
