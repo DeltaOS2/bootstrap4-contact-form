@@ -4,8 +4,6 @@
 Basic contact form for Bootstrap 4.3 with a simple math captcha.  
 Now ready for dark mode!
 
-Basic contact form for Bootstrap 4.3 with a simple math captcha.
-
 ## Getting Started
 
 Clone the repository or download the zip file.
